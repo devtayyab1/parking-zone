@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: *.html
+Disallow: *.php
+Disallow:/98637/1578382.html
+Disallow:/index.php?hjsln/v216472.html
+Disallow:/6442/227996.html
+Disallow:/79402/1232458.html
+Disallow:/4903/951559.html
+Disallow:/6871/1332934.html
+Disallow:/19597/176960.html
+Disallow:/6831/84583.html
+Disallow:/airport/dover%20port-airport-parking
+Disallow:/index.php?https://parkingzone.co.uk/index.php?xhkvx/k1271987.html
+
+Sitemap: https://www.parkingzone.co.uk/sitemap.xml
+Sitemap: https://www.parkingzone.co.uk/images_sitemap.xml

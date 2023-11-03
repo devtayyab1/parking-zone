@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ234,PZ012304281035,Gatwick,2023-04-28,09:58:00,2023-09-14,07:15:00,2023-09-25,17:45:00,South,South,12,Ms,LyeChin,Teng,7967190108,100,70,30,TBA,UX1015,0,Mercedes,"AMG Sport",Black,DA63EVC,Amend

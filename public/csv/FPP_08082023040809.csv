@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LHCP,PZ0123080619076,Heathrow,2023-08-06,16:19:54,2023-08-10,06:30:00,2023-08-12,22:30:00,"Terminal 5","Terminal 5",3,Mr,Camilla,Aichroth,07798780911,77.99,68.6312,9.3588,TBA,BA0995,0,VW,Golf,Grey,"VU18 LFM",Amend

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0123090619245,Heathrow,2023-09-06,08:59:31,2023-09-21,08:00:00,2023-09-30,23:30:00,"Terminal 5","Terminal 5",10,Mr,Phill,Cooke,07912158244,97,67.9,29.1,TBA,BA0415,0,Skoda,Kamiq,Black,"MW21 FOA",Amend

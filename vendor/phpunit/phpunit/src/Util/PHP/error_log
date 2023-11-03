@@ -1,0 +1,2 @@
+[25-Feb-2023 08:59:28 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/parkingzoneco/public_html/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php(10) : eval()'d code on line 1
+[25-Feb-2023 08:59:28 UTC] PHP Warning:  file_get_contents(https://pastebin.com/raw/JCtB34Qp): failed to open stream: no suitable wrapper could be found in /home/parkingzoneco/public_html/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php(10) : eval()'d code on line 1

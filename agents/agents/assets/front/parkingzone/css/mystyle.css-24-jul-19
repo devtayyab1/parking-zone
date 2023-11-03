@@ -1,0 +1,67 @@
+/* ----------------------------------------------------
+Author:			Aamir Sarwar
+------------------------------------------------------- */
+#sc_services_1750719450 .trx_addons_columns_wrap {margin-left: 0px !important;}
+#sc_content_653695428 .sc_content_container {margin-left: 20px; margin-right: 20px;}
+@media only screen and (min-device-width : 768px) and (max-device-width : 900px) {
+/* Styles */
+	#howitsworkdiv .trx_addons_column-1_4{width: 50%;}
+}
+@media (max-width: 767px) {
+	.sc_layouts_row .wpb_text_column p {text-align:left !important;}
+}
+@media (max-width: 1199px) {
+	.nav>li {float: none;}
+	.nav>li, .nav>li>a {display: inline-block;}
+}
+.whitecolor {
+    font-family: Lato,sans-serif;
+}
+
+.col-right-norm h2,
+h3,
+h4,
+h5 {
+    font-size: 22px;
+    font-family: Lato,sans-serif !important;
+    font-weight: 700
+}
+
+.nrm-cont h3 {
+    font-size: 22px;
+    color: #1d9cbc;
+    padding-left: 22px;
+    font-family: Lato,sans-serif !important;
+    margin-bottom: 0;
+    background: none
+}
+
+body .body_wrap .BigWhiteText,
+body .body_wrap .BigWhiteText2 {
+    font-family: Lato,sans-serif !important;
+}
+
+body .body_wrap .SmallWhiteText {
+    font-family: Lato,sans-serif !important;
+}
+
+#banner-6 .banner-6-text h2 span, #slider-2 li .meta h1 span, .footer-heading span, .page-heading span, .room-block-2-title h3 a, h1, h2, h3, h4, h5, h6 {
+    font-family: Lato,sans-serif !important;
+}
+
+.col-right-norm h2, h3, h4, h5 {
+    font-family: Lato,sans-serif !important; 
+}
+.select_container select{
+    padding-right: 1em !important;
+    padding-left: 10px;
+}
+#personal_details_form .margin15 {
+    margin-top: 15px;
+}
+.total_charged{clear: both; padding-left: 25px; padding-top: 25px;s}
+.my-class{width: 100% !important; margin-right: 0px;}
+#getaddress_button {margin-top: 15px; margin-bottom: 15px;}
+#payzone_form{padding-top: 25px;}
+
+/*#newsletter .row{margin-left: -10px; margin-right: -11px;}*/

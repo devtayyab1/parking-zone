@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+OP-AIRPMG1,PZ0123092019276,Heathrow,2023-09-20,08:35:21,2023-12-10,06:00:00,1970-01-01,00:00:00,"Terminal 2","Terminal 2",19702,Mr,Geraint,Tillott,07475869687,97.03,75.6834,21.3466,TBA,,0,Sangyong,Tivoli,Red,"AU16 XFO",Amend

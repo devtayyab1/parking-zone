@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+STV5,PZ0123101119369,Stansted,2023-10-11,10:53:41,2023-11-03,07:00:00,2023-11-04,23:30:00,Main,Main,2,Mr,Cassie,Liddiard,07896670448,63,55.44,7.56,TBA,FR2518,0,Volkswagen,T-ROC,Grey,"E070 DXU",Amend

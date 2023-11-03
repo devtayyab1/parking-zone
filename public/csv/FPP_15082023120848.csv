@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LUTPAR,PZ0223072218857,Luton,2023-07-22,17:29:01,2023-08-22,06:30:00,2023-08-24,19:30:00,Main,Main,2,Mr,John,Roxby,07940716667,62.98,44.086,18.894,TBA,W62207,0,Vauxhall,Astra,Grey,"DU06 OSV",Cancel

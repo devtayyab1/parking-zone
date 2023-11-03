@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0123092119289,Heathrow,2023-09-21,16:28:40,2023-09-26,05:00:00,2023-09-28,19:30:00,"Terminal 2","Terminal 2",3,Mr,Joanne,Olive,07715376895,65,45.5,19.5,TBA,SK802,0,"Range Rover",Sport,Black,JJ71ANJ,Amend

@@ -1,0 +1,17 @@
+Array
+(
+    [username] => Peter Dixon
+    [airport] => Heathrow
+    [terminal] => Terminal 4
+    [rterminal] => Terminal 3
+    [company] => Terminals Parking
+    [days] => 30
+    [email] => peted2131@gmail.com
+    [start_date] => 2023-12-27 07:00:00
+    [end_date] => 2024-02-25 09:00:00
+    [r_flight_no] => FLIGHT QF001
+    [reg] => DN23AMX
+    [vehicle] => DN23AMX
+    [ref] => PZ0523102119416
+    [refund] => 194.64
+)

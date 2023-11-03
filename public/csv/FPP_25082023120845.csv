@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BIRMAG,PZ0123081819156,Birmingham,2023-08-18,19:10:09,2023-08-27,03:00:00,2023-09-03,13:30:00,"Bhx Terminal 1","Bhx Terminal 1",8,Mr,"James Robert",Wilcox,07833479330,90.99,63.693,27.297,TBA,TOM7735,0,BMW,320,White,KV69XZS,Amend

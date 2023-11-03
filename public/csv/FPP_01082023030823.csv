@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+OP-BIRMAG,PZ0223072718919,Birmingham,2023-07-27,10:47:25,2023-08-12,11:00:00,2023-08-22,11:45:00,"Bhx Terminal 1","Bhx Terminal 1",10,Mr,Leonidas,Kouniakis,07710520286,116.98,86.5652,30.4148,TBA,LS1282,0,BMW,320D,Black,VK67GXS,Cancel

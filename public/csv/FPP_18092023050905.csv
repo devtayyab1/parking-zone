@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+OP-BRISMAG,PZ012306241282,Bristol,2023-06-24,08:07:00,2023-10-17,14:00:00,2023-10-23,13:15:00,"Bristol terminal 1","Bristol terminal 1",7,Mr,stephen,james,7770724708,71.99,53.2726,18.7174,TBA,fr2291,0,Vauxhall,greylander,grey,"H2 KEJ",Amend

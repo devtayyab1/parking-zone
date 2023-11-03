@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+    @php
+        $site_settings_main=[];
+            $settingsAll = App\settings::all();
+                    foreach ($settingsAll as $setting) {
+                        $site_settings_main[$setting->field_name] = $setting->field_value;
+                    }
+    @endphp
+    @hasSection('title') <title>@yield('title')</title> @else <title>{{ $site_settings_main["site_title"] }}</title> @endif
+    @hasSection('meta_description') <meta name="description" content="@yield('meta_description')"> @else <meta name="description" content="{{ $site_settings_main["meta_description"] }}"> @endif
+    @hasSection('meta_keyword') <meta name="keywords" content="@yield('meta_keyword')"> @else <meta name="keywords" content="{{ $site_settings_main["meta_keyword"] }}">@endif
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="Cache-Control: public, max-age=31536000" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+
+
+
+    <link rel="icon" type="image/png" href="{{ secure_asset("assets/images/favicon-32x32.png") }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ secure_asset("assets/images/favicon-16x16.png") }}" sizes="16x16" />
+
+
+
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/bootstrap.min.css") }}" media="all">
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/style.css") }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/PlayfairDisplay.css") }}" media="all">
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/font-awesome.min.css") }}" media="all">
+
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/yellow.css") }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/responsive.css") }}" media="all">
+    <!-- Owl Carousel Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/owl.carousel.css") }}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/owl.theme.css") }}" media="all">
+    <!-- Flex Slider Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/flexslider.css") }}" media="all" type="text/css" />
+    <!--Date-Picker Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/datepicker.css") }}" media="all">
+    <!-- Magnific Gallery -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/magnific-popup.css") }}" media="all">
+    <!-- Color Panel -->
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset("assets/front/css/jquery.colorpanel.css") }}" media="all">
+
+
+    <noscript id="deferred-styles">
+        {{--<!-- Google Fonts -->--}}
+        {{--<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i"--}}
+              {{--rel="stylesheet">--}}
+
+
+    </noscript>
+    <script>
+        var loadDeferredStyles = function() {
+            var addStylesNode = document.getElementById("deferred-styles");
+            var replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+    </script>
+
+
+    {!! $site_settings_main["site_header_analytics"] !!}
+
+</head>
+
+
+<body id="homepage-2">
+
+<!--====== LOADER =====-->
+<div class="loader"></div>
+
+
+<!--========== TOP-BAR ==========-->
+<div id="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div id="info">
+                    <ul class="list-unstyled list-inline" id="headerhelpline">
+                        <li><span><i class="fa fa-map-marker"></i></span>Helpline Mon-Fri (9AM-5PM)</li>
+                        <li><span><i class="fa fa-phone"></i></span>02086609241</li>
+
+                    </ul>
+                </div><!-- end info -->
+            </div><!-- end columns -->
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div id="links">
+                    <ul class="list-unstyled list-inline">
+                        <li><a href="{{ route("support") }}"><span><i class="fa fa-ticket"></i> Customer Support</span></a>
+                        </li>
+
+                        <li><a href="{{ route("manage_booking") }}"><span><i
+                                            class="fa fa-user"></i> Manage Booking</span> </a></li>
+                        <li><a href="{{ route("reviews") }}"><span><i class="fa fa-asterisk"></i> Reviews</span> </a>
+                        </li>
+                        <li></li>
+
+
+                    </ul>
+                </div><!-- end links -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end top-bar -->
+
+
+<!--=========== HOME CONTAINER ==========-->
+
+
+@yield('content')
+
+
+@if(Route::currentRouteName()!= "addBookingForm")
+<!--============== NEWSLETTER ===============-->
+<section id="newsletter" class="banner-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <h2>Join Us to Receive</h2>
+                <h3>Regular Customer Discount Code</h3>
+                <p>Sign up today, and we'll keep you updated on our discount codes and special offers!</p>
+                <form id="subscribe_user" action="{{ route("subscribe_user") }}" method="post">
+                    @csrf
+
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            <input id="subscribe_user_name" name="name" type="text" style="width: 40%;margin-right: 1%;"
+                                   class="form-control input-lg" placeholder="Enter Your Name" required/>
+                            <input id="subscribe_user_email" name="email" type="email" style="width: 59%;"
+                                   class="form-control input-lg" placeholder="Your Email Address" required/>
+                            <span class="input-group-btn">
+
+                                    <button id="subscribe_user" class="btn btn-lg"><i
+                                                class="fa fa-paper-plane"></i></button></span>
+
+                        </div>
+                    </div>
+                    <div id="error_message"></div>
+                </form>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end newsletter -->
+@endif
+<!--========== FOOTER ==========-->
+
+
+<section>
+    <div id="footer-top" class="banner-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-left" id="more-about">
+                    <h2 class="footer-heading">
+
+                        <span>PARKINGZONE </span>LIMITED</h2>
+                    <p>PARKINGZONE LIMITED was established in the advent of the 21st century and became a leading traveling
+                        business. We are specialized in offering parking services, travel packages, and price
+                        comparisons according to the needs of our customers.</p>
+                    <ul class="social-links list-inline list-unstyled">
+                        @if(array_key_exists("facebook",$site_settings_main) && $site_settings_main["facebook"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["facebook"] }}"><span><i class="fa fa-facebook"></i></span></a>
+                            </li>
+                        @endif
+
+
+                        @if(array_key_exists("twitter",$site_settings_main) && $site_settings_main["twitter"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["twitter"] }}"><span><i class="fa fa-twitter"></i></span></a></li>
+                        @endif
+
+
+                        @if(array_key_exists("instagram",$site_settings_main) && $site_settings_main["instagram"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["instagram"] }}"><span><i class="fa fa-instagram"></i></span></a>
+                            </li>
+                        @endif
+
+
+                        @if(array_key_exists("google_plus",$site_settings_main) && $site_settings_main["google_plus"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["google_plus"] }}"><span><i class="fa fa-google-plus"></i></span></a>
+                            </li>
+                        @endif
+
+
+                        @if(array_key_exists("youtube",$site_settings_main) && $site_settings_main["youtube"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["youtube"] }}"><span><i class="fa fa-youtube"></i></span></a></li>
+                        @endif
+
+                        @if(array_key_exists("pinterest",$site_settings_main) && $site_settings_main["pinterest"] !="")
+                            <li><a  target="_blank" href="{{ $site_settings_main["pinterest"] }}"><span><i class="fa fa-pinterest"></i></span></a>
+                            </li>
+                        @endif
+
+                        @if(array_key_exists("linkedin",$site_settings_main) && $site_settings_main["linkedin"] !="")
+                            <li><a target="_blank" href="{{ $site_settings_main["linkedin"] }}"><span><i class="fa fa-linkedin"></i></span></a>
+                            </li>
+                        @endif
+
+
+                    </ul>
+                </div><!-- end more-about -->
+
+                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 text-left" id="company">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route("main") }}">Home</a></li>
+                        <li><a href="{{ route("static_page",["slug"=>"about-us"]) }}">About</a></li>
+                        <li><a href="{{ route("support") }}">Customer Support</a></li>
+                        <li><a href="{{ route("static_page",["page"=>"privacy-policy"]) }}">Privacy Policy</a></li>
+                        <li><a href="{{ route("static_page",["page"=>"site-security"]) }}">Site Security</a></li>
+                            <li><a href="{{ route("airports") }}">  ALL Airports </a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div><!-- end useful-links -->
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-left" id="f-services">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route("static_page",["page"=>"affiliates"]) }}">Affiliate</a></li>
+                        <li><a href="{{ route("static_page",["page"=>"cookies"]) }}">Cookies</a></li>
+                        <li><a href="{{ route("faqs") }}">FAQ</a></li>
+                        <li><a href="{{ route("sitemap") }}">Site Map</a></li>
+                            <li><a href="{{ route("contact-us") }}">Contact Us</a></li>
+                        <li><a href="{{ route("reviews") }}">Reviews</a></li>
+                        <li><a href="{{ route("airport_guide") }}">Airport Guide</a></li>
+
+                    </ul>
+                </div><!-- end visit-us -->
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-left" id="contact-us">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="list-unstyled">
+                        <li><span><i class="fa fa-map-marker"></i></span>
+                            {{ $site_settings_main["footer_address"] }}
+                        </li>
+                        <li><span><i class="fa fa-phone"></i></span> {{ $site_settings_main["footer_phone_no"] }}</li>
+                        <li><span><i class="fa fa-envelope"></i></span>{{ $site_settings_main["footer_email"] }}</li>
+                        <li><span><i class="fa fa-registered"></i></span>{{ $site_settings_main["footer_company_reg_no"] }}</li>
+                    </ul>
+
+                </div><!-- end social-links -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end footer-top -->
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+                    <p>{{ $site_settings_main["footer_copyright"] }}</p>
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="terms">
+                    <ul class="list-unstyled list-inline">
+                        <li><a href="{{ route("static_page",["page"=>"terms-and-conditions"]) }}">Terms & Condition</a>
+                        </li>
+                        <li><a href="{{ route("static_page",["page"=>"refund-policy"]) }}">Refund Policy</a></li>
+                    </ul>
+                </div><!-- end columns -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end footer-bottom -->
+
+</section>
+<!--Footer Section Ends-->
+{!! $site_settings_main["site_footer_analytics"] !!}
+
+<!-- Page Scripts Starts -->
+<script   src="{{ secure_asset("assets/front/js/jquery.revolution.extension.navigation.min.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/jquery.colorpanel.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/jquery.magnific-popup.revolution.extension.navigation.min.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/bootstrap.revolution.extension.navigation.min.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/jquery.flexslider.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/bootstrap-datepicker.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/owl.carousel.revolution.extension.navigation.min.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/custom-gallery.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/custom-navigation.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/custom-date-picker.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/custom-flex.js") }}"></script>
+<script   src="{{ secure_asset("assets/front/js/custom-owl.js") }}"></script>
+
+
+
+<!-- Page Scripts Ends -->
+<script async type="text/javascript">
+
+    $(document).ready(function () {
+
+        // process the form
+        $('#subscribe_user').submit(function (event) {
+
+            // get the form data
+            // there are many ways to get this data using jQuery (you can use the class or id also)
+            var formData = {
+                'name': $('#subscribe_user_name').val(),
+                'email': $('#subscribe_user_email').val(),
+                '_token': '{{ @csrf_token() }}'
+            };
+
+            // process the form
+            $.ajax({
+                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url: '{{ route("subscribe_user") }}', // the url where we want to POST
+                data: formData, // our data object
+                dataType: 'json', // what type of data do we expect back from the server
+                encode: true
+            })
+            // using the done promise callback
+                .done(function (data) {
+
+                    // log data to the console so we can see
+                    console.log(data);
+                    if (data.success == 0) {
+                        $("#error_message").html(data.errors);
+                        $("#error_message").css("color", "red");
+                    } else {
+                        $("#error_message").html(data.data);
+                    }
+
+                    // here we will handle errors and validation messages
+                });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+
+    });
+
+</script>
+
+@section("footer-script")
+
+@show
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

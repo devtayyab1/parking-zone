@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0123102619434,Heathrow,2023-10-26,18:48:09,2023-11-20,05:15:00,2023-11-26,16:45:00,"Terminal 5","Terminal 5",7,Mr,Alan,Shah,07956441088,85,59.5,25.5,TBA,,0,Nissan,Leaf,Silver,"GL19 KXH",Amend

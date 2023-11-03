@@ -1,0 +1,33 @@
+Array
+(
+    [guidence] => <strong>Arrival:</strong><br><p data-pm-slice="1 1 []"><strong>Dropping Your Car</strong></p><p>Call&nbsp;<strong>0330 0179 7645</strong>&nbsp;when you are 30 mins from the terminal. Follow the recorded instructions and YOU hang up. If you need to speak to someone press option 3. Do not enter or park in the ‘airport Drop Charge Zone’.</p><p><strong>For South Terminal:&nbsp;</strong>As you approach the South Terminal, stay in the right-hand lane, and bear right following signs for the "Short Stay Car Park". Take a ticket at the barrier and proceed to&nbsp;<strong>Orange Car Park, Ground Level 0.</strong>&nbsp;Also known as the "<strong>Express Pick Up</strong>".</p><p><strong>For North Terminal:&nbsp;</strong>As you enter the North Terminal stay in the left-hand lane and head towards the "Short Stay Car Park". Take a ticket at the barrier and go to<strong>&nbsp;Car Park 6</strong>&nbsp;(second car park on the right). You cross two small Zebra crossings to get to car park 6.&nbsp;Proceed to<strong>&nbsp;Level 4&nbsp;</strong>which is also called<strong>&nbsp;the express pick up.</strong></p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF YOU CANNOT SEE YOUR DRIVER STRAIGHT AWAY, DO NOT PANIC, PARK IN ANY FREE BAY AND DRIVER WILL FIND YOU.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO NOT LEAVE ANY VALUABLES IN THE CAR, WE SHALL NOT BE LIABLE FOR ANY MISSING ITEMS.</p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><strong>WE URGE YOU TO FILM/PHOTOGRAPH YOUR VEHICLE AT THE TERMINAL AS WE WILL ONLY BE LIABLE FOR VEHICLE DAMAGE CAUSED BY OUR NEGLIGENCE WHILST IN OUR POSSESSION WHICH YOU CAN SHOW BY PICTURES/VIDEO TAKEN AT THE TERMINAL.</strong></em></p><p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PLEASE MAKE SURE YOU ARRIVE AROUND THE BOOKED TIME AS DRIVERS ARE DESPATCHED AT YOUR BOOKED TIME UNLESS OTHERWISE ADVISED</p><div style="text-align: justify;"><span style="font-size: 18px;"><span style="font-weight: 700;">Note:</span></span></div><div style="text-align: justify;"><span times="" new="" roman";="" font-size:="" medium;="" text-align:="" start;"=""><span style="font-weight: 700;">Most airports charge a fee for Pick Up and Drop offs. There is a minimum charge of £5.00 and is payable directly to the airport at the time on entry/exit. This is NOT included in your booking fee.</span></span></div><br><strong>Return:</strong><br><p data-pm-slice="1 1 []"><strong>Collecting Your Car</strong></p><p>ON YOU RETURN&nbsp;call&nbsp;us on&nbsp;<strong>0330 0179 7645</strong>&nbsp;ONLY when you have collected ALL your bags. Follow the recorded instructions and hang up the phone. You do NOT need to confirm if we received your message. Should there be any delays or issues we will call you.</p><p>Please note: On your return you will be required to pay the £5 terminal exit fee by card or phone payment at barriers.</p><p>Additional days are charged at &nbsp;£20 per day.&nbsp;</p><p><strong>YOU COULD BE CHARGED £15 if you:-</strong></p><p><strong>1. Arrive at the terminal more than 40 mins earlier or later than your booked time unless you notify us with at least 2 hours’ notice.</strong></p><p><strong>2. Just turn up without having called us 30 mins before arrival.</strong></p><p><strong>3. Provide incorrect return flight number/time. Incorrect terminal.</strong></p><p><strong>4.&nbsp; call us as soon as your plane lands instead of after collecting your bags resulting in us waiting unnecessarily with your vehicle.</strong></p><p><strong>We understand travel plans change, by letting us know as soon as you know avoids inconvenience &amp; costs. Most issues can be resolved for free, if you confirm details with the driver before you fly out.</strong></p><p><strong>IF YOU ARE UNSURE of your times, vehicle reg number, return flight times/numbers or even where/how you will drop/collect your vehicle, just CALL US&nbsp;0330 179 7645&nbsp;and press 3 or email us on <a href="mailto:helpdesk@flightparkone.com" class="ProsemirrorEditor-link">helpdesk@flightparkone.com</a>. Messages left on our voicemail system will be answered.</strong></p><p trebuchet="" ms";"="" style="color: rgb(51, 51, 51);"><br></p><p trebuchet="" ms";"="" style="color: rgb(51, 51, 51);">Please note: You will be required to pay the exit fee as follows:-</p><p trebuchet="" ms";"="" style="color: rgb(51, 51, 51);">0-30 mins £5.00</p><p trebuchet="" ms";"="" style="color: rgb(51, 51, 51);">After 30 mins: normal airport tariffs will apply.</p><br>
+    [username] => Roland Harries
+    [email] => Rolyharries@btinternet.com
+    [telephone] => 07968203932
+    [carpark] => Car Park
+    [c_parent] => Flight Park One Meet and Greet
+    [ptype] => Meet and Greet
+    [airport] => Gatwick
+    [terminal] => North
+    [rterminal] => North
+    [days] => 16
+    [start_date] => 2023-06-01 07:00:00
+    [end_date] => 2023-06-16 07:30:00
+    [booktime] => Illuminate\Support\Carbon Object
+        (
+            [date] => 2023-05-27 09:10:29.000000
+            [timezone_type] => 3
+            [timezone] => UTC
+        )
+
+    [r_flight_no] => Tom92
+    [reg] => R20lyy
+    [model] => Sport
+    [make] => Range Rover
+    [color] => Black
+    [payment_gatway] => stripe
+    [payment_status] => success
+    [price] => 161.29
+    [addtionalprice] => 0
+    [ref] => PZ-2305271193
+)

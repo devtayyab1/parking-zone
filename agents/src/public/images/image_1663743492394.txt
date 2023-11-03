@@ -1,0 +1,262 @@
+public function ajaxSearchResults($request) {
+
+        // dd($request);
+        $promo_error_message="";
+//        $returnData = [];
+//        $returnData["airport_id"] = $request->input('airport_id');
+//        $returnData["dropoffdate"] = $request->input('dropoffdate');
+//        $returnData["departure_date"] = $request->input('departure_date');
+//        $returnData["dropoftime"] = $request->input('dropoftime');
+//        $returnData["pickup_time"] = $request->input('pickup_time');
+//        //$returnData["_token"] = csrf_token();
+//        $returnData["promo"] = $request->input('promo');
+//
+//        $_SESSION["search_data"]=$returnData;
+
+
+        $messages = [
+            'required' => 'This field is required.'
+        ];
+        $validatedData = Validator::make(Input::all(), [
+            'airport_id' => 'required',
+            'dropoffdate' => 'required',
+            'departure_date' => 'required'
+
+        ], $messages);
+
+        $airport_id = $request->input('airport_id');
+
+        $dropdate = $request->input('dropoffdate');
+        $pickdate = $request->input('departure_date');
+        $dropoftime = $request->input('dropoftime');
+        $pickuptime = $request->input('pickup_time');
+        $no_of_days = $request->input('no_of_days') + 1;
+
+		$dropdate = str_replace('/', '-', $dropdate);		
+		$pickdate = str_replace('/', '-', $pickdate);
+		
+// new way to calculate number of days
+
+  //       $start_date = \Carbon\Carbon::createFromFormat('d-m-Y', '1-5-2015');
+  // $end_date = \Carbon\Carbon::createFromFormat('d-m-Y', '10-5-2015');
+  // $different_days = $start_date->diffInDays($end_date);
+
+        //$bookingfor = $request->input('bookingfor');
+        $bookingfor = "airport_parking";
+        $promo = $request->input('promo');
+        $promo2 = $request->input('promo2');
+        $filter1 = $request->input('filter1');
+     
+        $filter2 = ($request->input('filter2') != '') ? $request->input('filter2') : 'low-to-high';
+        $filter3 = $request->input('filter3');
+        $search_filter = '';
+        $search_filter3 = '';
+        $search_filter2 = 'order by sort_by asc';
+   
+        if ($filter1 != '' && $filter1 != 'All') {
+            $search_filter .= "and parking_type = '" . $filter1 . "'";
+        }
+        if ($filter2 == 'low-to-high') {
+            $search_filter2 = "order by featured asc, recommended asc,parking_type asc, price asc";
+    
+        } elseif ($filter2 == 'high-to-low') {
+            $search_filter2 = "order by price desc";
+        } elseif ($filter2 == 'distance') {
+            $search_filter2 = "order by travel_time asc";
+        }
+        if ($filter3 != '') {
+            $search_filter3 .= "and terminal = '" . $filter3 . "'";
+        }
+
+        if ($promo != '') {
+            $discount = new discounts();
+            $promo_verify = $discount->varifyPromoCode($promo);
+
+            if($promo_verify!="Verify"){
+                    $validatedData->getMessageBag()->add('promo', $promo_verify);
+
+                    //return redirect()->back()->withErrors($validatedData)->withInput();
+
+            }
+
+
+        }
+
+        if ($promo2 != '') {
+            $discount = new discounts();
+            $promo_verify = $discount->varifyPromoCode($promo2);
+
+            if($promo_verify != "Verify"){
+               // $validatedData->getMessageBag()->add('promo', $promo_verify);
+
+               // $promo_error=1;
+                $promo_error_message=$promo_verify;
+
+
+            }
+            $promo=$promo2;
+
+        }
+
+//dd($promo);
+        $html = '';
+        $i = 1;
+        $j = 1;
+        $inactive = 0;
+        $inactiv = 0;
+
+        $selected_date = strtotime($dropdate);
+        $year = date('Y', $selected_date);
+        $month = date('n', $selected_date);
+        $day = date('j', $selected_date);
+		
+		
+
+        $dropofdate = date('Y-m-d', strtotime($dropdate));
+        $pickupdate = date('Y-m-d', strtotime($pickdate));
+		
+        $dStart = new DateTime($dropofdate);
+        $dEnd = new DateTime($pickupdate);
+        $dDiff = $dStart->diff($dEnd);
+
+        $dDiff->format('%R');
+        $no_of_days = $dDiff->days;
+        $total_days = $no_of_days + 1;
+
+        if ($no_of_days > 30) {
+            $total_days = '30';
+        } else {
+            $total_days = $no_of_days + 1;
+        }
+        if($total_days<=0){ $total_days=1;}
+        // Calculate Days Difference From Now
+        $dropdate1 = strtotime($dropdate);
+        $c_time = date("Y-m-d");
+        $dropdate1 = date("Y-m-d", $dropdate1);
+        $datetime1 = new DateTime($c_time);
+        $datetime2 = new DateTime($dropdate1);
+        $interval = $datetime1->diff($datetime2);
+        $diff_date = $interval->format('%R%a');
+        $diff_date = substr($diff_date, 1);
+        ////////********** END **********///////
+
+
+        $query = "SELECT  distinct fapp.id,fc.company_code as product_code, fc.opening_time,fc.closing_time,fc.id as companyID,fc.aph_id,fc.name,fc.processtime,fc.awards,fc.featured,fc.recommended,fc.special_features,fc.overview, IF( LENGTH(fc.returnfront) >0,fc.returnfront,fc.return_proc) AS return_proc,IF( LENGTH(fc.arivalfront) >0,fc.arivalfront,fc.arival) AS arival,fc.terms,fc.address,fc.town,fc.post_code,fc.message,fc.extra_charges,fc.parking_type,fc.logo,fc.travel_time,fc.miles_from_airport, fc.cancelable, fc.editable, fc.bookingspace, fasb.brand_name, fapb.after_30_days, fapp.id as pl_id, IF( fapb.day_" . $total_days . " >0, fapb.day_" . $total_days . "+fapp.extra, 0.00) AS price FROM companies as fc
+                left join companies_set_price_plans as fapp on fc.id = fapp.cid
+                left join companies_set_assign_price_plans  as fasb on fapp.id = fasb.plan_id and fasb.day_no = 'day_" . $total_days . "'
+                left join companies_product_prices as fapb on fapb.cid = fc.id and fapb.brand_name = fasb.brand_name
+                WHERE is_active = 'Yes' and removed != 'Yes'  and airport_id = '" . $airport_id . "' and aph_id is null and fapp.cmp_month = '" . $month . "'  and fapp.cmp_year = '" . $year . "'  $search_filter $search_filter2 $search_filter3
+                ";
+				
+
+
+        $companies = DB::select(DB::raw($query));
+
+//        if ($promo != '') {
+//            $discount_amount = getPromoDiscount($promo, $price);
+//            $price = $price - $discount_amount;
+//        }
+
+
+        //return view("frontend.ajax.result", []);
+        $airports = airport::all()->where("status", "Yes");
+        $companies_special_features = companies_special_features::all();
+
+
+        $airport_detail = airport::where("id",$airport_id)->first();
+
+
+        //////////////////////////////////////////////
+        //////////api working start//////////////////
+        /////////////////////////////////////////////
+
+
+        $apiairports = airport::all()->where("id", $airport_id)->toArray();
+
+       foreach ($apiairports as $apiairport) {
+           $airport_name = $apiairport['name'];
+           $airport_code = $apiairport['iata_code'];
+           $airport_post_code = $apiairport['post_code'];
+           $airport_address = $apiairport['address'];
+           $airport_town = $apiairport['city'];
+       }
+       $ArrivalDate = date('dMy', strtotime($dropdate));
+       $DepartDate = date('dMy', strtotime($pickdate));
+       $ArrivalTime = date("Hi", strtotime($dropoftime));
+       $DepartTime = date("Hi", strtotime($pickuptime));
+
+
+    $xml = '<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>'.config('app.ABTANumber').'</ABTANumber>
+     <Password>'.config('app.Password').'</Password>
+     <Initials>'.config('app.Initials').'</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>' . $ArrivalDate . '</ArrivalDate>
+     <DepartDate>' . $DepartDate . '</DepartDate>
+     <ArrivalTime>' . $ArrivalTime . '</ArrivalTime>
+     <DepartTime>' . $DepartTime . '</DepartTime>
+     <Location>' . $airport_code . '</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request>';
+
+       $aph_functions = new aph_functions();
+       $api = new \api();
+       $APHcompanies = @$aph_functions->AphBooking($xml);
+		//dd($APHcompanies);
+		//echo "<pre>"; print_r($APHcompanies);echo "</pre>";
+		//exit;
+       $aph_record = @$api->aph_record($APHcompanies, $airport_id, $search_filter); 
+
+       //print_r($aph_record);
+
+       if (count($aph_record) > 0) {    
+
+            $aph_record = json_decode(json_encode($aph_record)); // convert to object
+
+            $companies = array_merge((array) $companies, (array) $aph_record);
+       } 
+
+  
+		$globalcompanies = @$aph_functions->GlobalBooking($airport_code,$dropdate,$dropoftime,$pickdate,$pickuptime);
+    	$global_record =  @$api->global_record($globalcompanies, $airport_id, $search_filter);
+    	
+    	//echo "<pre>"; print_r($ACEcompanies); echo "</pre>"; 
+    	//echo "<pre>"; print_r($global_record); echo "</pre>";
+        //exit;
+    	if(!empty($global_record)){
+    		//$all_records = array_merge($all_records, $global_record);
+    		$global_record = json_decode(json_encode($global_record));
+    		
+            $companies = array_merge((array) $companies, (array) $global_record);
+    	}
+		///$ACEcompanies = ACEBooking($airport_code, $dropdate, $dropoftime, $pickdate, $pickuptime);
+
+        // echo "<pre>"; print_r($companies); echo "</pre>";
+        // exit;
+
+        $companies= Arr::sort($companies, function($company)
+        {
+            // Sort the student's scores by their test score.
+            return $company->price;
+        });
+		////////view start////////////////////
+        //   dd($companies);
+		if($request->input('return_json')!='Yes')
+		{
+        return view("frontend.ajax_search_result", ["airports" => $airports, "companies" => $companies, "companies_special_features" => $companies_special_features, "request" => $request, "no_of_days" => $total_days, "promo" => $promo,"bookingfor"=>$bookingfor,"airport_detail"=>$airport_detail,"promo_error_message"=>$promo_error_message, 'request' => $request]);
+		}
+		else
+		{
+			return response()->json(["airports" => $airports, "companies" => $companies, "companies_special_features" => $companies_special_features, "request" => $request, "no_of_days" => $total_days, "promo" => $promo,"bookingfor"=>$bookingfor,"airport_detail"=>$airport_detail,"promo_error_message"=>$promo_error_message, 'request' => $request]);
+		}
+
+    }

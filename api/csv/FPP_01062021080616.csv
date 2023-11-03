@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ107FLEX,PZ-210531336,Heathrow,2021-05-31,15:45:52,2021-11-25,09:00:00,2021-11-27,09:00:00,,,3,Mr,test,book,+923315358749,64.90,51.271000,13.629000,TBA,fl123,0,make123,model123,color123,reg123,Next

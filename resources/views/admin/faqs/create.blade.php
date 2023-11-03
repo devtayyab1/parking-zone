@@ -1,0 +1,243 @@
+@extends('admin.layout.master')
+@section('stylesheets')
+    @parent
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/jquery-ui.custom.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/chosen.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/bootstrap-datepicker3.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/bootstrap-timepicker.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/daterangepicker.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/bootstrap-datetimepicker.min.css') }}"/>
+    <link rel="stylesheet" href=" {{ secure_asset('assets/css/bootstrap-colorpicker.min.css') }}"/>
+
+    <style type="text/css">
+        .awards-pic {
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .awards-pic img {
+            width: 80px;
+        }
+
+        .leftText {
+            margin-top: 10px;
+        }
+
+        .pad0 {
+            padding: 0px;
+        }
+    </style>
+@endsection
+
+@section('content')
+
+
+
+
+    <div class="page-content">
+
+
+        <div class="page-header">
+            <h1>
+                Faqs
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    Add
+                </small>
+            </h1>
+        </div><!-- /.page-header -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                        @endif
+
+
+
+
+                        {{ Form::open(array('class'=>'form-horizontal','method'=>'post','route' => 'faqs.store')) }}
+
+
+                        <div class="form-group">
+                            {{ Form::label('Title', 'Title', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+
+                            <div class="form-control-sm"></div>
+                            <div class="col-sm-6">
+                                {{ Form::text('title',  Input::old('title'), array('class' => 'form-control')) }}
+
+
+
+                            @if ($errors->has('title'))
+
+                                <div class="alert alert-danger alert alert-danger "
+                                     style="clear: both;">
+                                    <strong>{{ $errors->first('title') }}</strong>
+                                </div>
+                            @endif
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ Form::label('type', 'Page Type', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+
+
+                            <div class="col-sm-6">
+                                {{ Form::select('type',[""=>"All Type","Parking"=>"Airport Parking","Hotels"=>"Hotels","Hotels with Parking"=>"Hotels with Parking","Lounges"=>"Airport Lounges"],null,["id"=>'type' ,"class"=>"form-control"]) }}
+
+
+                            @if ($errors->has('type'))
+
+                                    <div class="alert alert-danger alert alert-danger "
+                                         style="clear: both;">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+
+                        </div>
+   <div class="form-group" id="agentID">
+                                  {{ Form::label('Select Agent', 'Select Agent', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+                                 
+                     <div class="col-sm-6">
+       <select name="agentID" style="padding: 6px 2px;height: 35px;">         
+       @foreach($agentsList as $key=>$agentsList)   
+       @php $checked='none'; @endphp              
+       @if(in_array($key,$user_role_agents))      
+       @if($key != "0")                            
+       @php $checked=true; @endphp                  
+       @endif                                    
+       @endif                                     
+       <option value="{{$key}}" @if(Input::get('agentID')==$key) {{ "selected='selected'" }}@endif style="display:{{$checked}};">{{$agentsList}}</option>                
+       @endforeach                                   
+       </select>
+
+ </div>
+  </div>
+                     <div class="form-group" id="airportID">
+                                  {{ Form::label('Select Airport', 'Select Airport', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+                                 
+                     <div class="col-sm-6">
+       <select name="airportID" style="padding: 6px 2px;height: 35px;">         
+       @foreach($airports as $airport)   
+       <option value="{{$airport->id}}" @if(Input::get('airportID') == '$airport->id' ) {{ "selected='selected'" }}@endif>{{$airport->name}}</option>                
+       @endforeach                                   
+       </select>
+
+ </div>
+  </div>
+    @if (\Session::has('erroragent'))
+   <div class="alert alert-danger">
+        <ul>
+            <li>{!! \Session::get('erroragent') !!}</li>
+        </ul>
+    </div>
+@endif
+                            <div class="form-group">
+                                {{ Form::label('status', 'Status', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+
+
+                                <div class="col-sm-4">
+                                    {{ Form::select('status', array('Yes' => 'Active', 'No' => 'Inactive'), 'active') }}
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                {{ Form::label('content', 'Content', array('class' => 'col-sm-3 control-label no-padding-right')) }}
+
+
+                                <div class="col-sm-6">
+                                    {{ Form::textarea('content', Input::old('content'), array('id'=>'content','class' => 'form-control', "data-provide"=>"markdown")) }}
+                                    @if ($errors->has('content'))
+
+                                        <div class="alert alert-danger alert alert-danger"
+                                             style="clear: both; margin-top: -22px;">
+                                            <strong>{{ $errors->first('content') }}</strong>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                {{  Form::submit('Submit',array("class"=>"btn btn-info")) }}
+
+                            </div>
+                        </div>
+
+
+                    </div><!-- /.span -->
+                </div><!-- /.row -->
+
+
+                <!-- PAGE CONTENT ENDS -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
+
+
+@endsection
+@section('footer-script')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+
+
+            $('#content').summernote({
+                height: 150,
+                disableDragAndDrop: true,
+                toolbar: [
+// [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+
+
+
+
+
+        });
+
+    </script>
+@endsection
